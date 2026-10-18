@@ -1,0 +1,87 @@
+/* account.css - các trang sau khi đăng nhập: Lịch hẹn, Thông báo, Quản lý tin */
+.acc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:18px}
+.acc-head .page__title{margin-bottom:4px}
+.acc-sub{color:var(--muted)}
+.alert{margin-bottom:16px;padding:12px 16px;border-radius:10px;font-size:15px}
+.alert--ok{background:var(--green-soft);border:1px solid #b9dfc9;color:#1d5a3b}
+.alert--err{background:#fdecea;border:1px solid #f3b8b3;color:#8a1f17}
+.empty-box{padding:40px 20px;border:1px dashed #c9ced4;border-radius:12px;background:#fff;text-align:center;color:var(--muted)}
+.empty-box .btn{margin-top:14px}
+
+/* Tab lọc trạng thái */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.tab{padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;background:#fff;font-size:14px;font-weight:600}
+.tab:hover{border-color:var(--green);color:var(--green)}
+.tab.is-active{border-color:var(--green);background:var(--green);color:#fff}
+.tab b{margin-left:4px;font-weight:800}
+
+/* Thẻ lịch hẹn */
+.viewing-list{display:grid;gap:14px}
+.viewing{display:grid;grid-template-columns:86px minmax(0,1fr) auto;gap:18px;align-items:start;padding:18px;border:1px solid var(--line);border-radius:12px;background:#fff;scroll-margin-top:96px}
+.viewing:target{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.viewing__date{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 6px;border-radius:10px;background:var(--green-soft);color:var(--green-dark);text-align:center}
+.viewing__date b{font-size:26px;line-height:1}
+.viewing__date small{font-size:12px;font-weight:600}
+.viewing__title{font-size:17px;font-weight:700;line-height:1.35}
+.viewing__title a:hover{color:var(--green);text-decoration:underline}
+.viewing__meta{display:flex;flex-wrap:wrap;gap:6px 16px;margin:6px 0;color:#374151;font-size:14px}
+.viewing__note{margin-top:6px;padding:8px 12px;border-radius:8px;background:#f6f7f8;font-size:14px;overflow-wrap:anywhere}
+.viewing__reason{margin-top:6px;color:#8a1f17;font-size:14px}
+.viewing__actions{display:flex;flex-direction:column;gap:8px;min-width:150px}
+.viewing__actions .btn{width:100%;font-size:14px;padding:8px 12px}
+
+/* Nhãn trạng thái (giá trị cột property_viewings.status) */
+.status{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700;white-space:nowrap}
+.status.is-pending{background:#fff4dc;color:#8a5a00}
+.status.is-confirmed{background:#e3eefa;color:#1f5aa0}
+.status.is-completed{background:var(--green-soft);color:var(--green-dark)}
+.status.is-cancelled{background:#f1f2f4;color:#5b6470}
+
+/* Nút có ô nhập lý do: dùng <details> để mở / đóng, không cần JavaScript */
+.reason-box summary{list-style:none;cursor:pointer}
+.reason-box summary::-webkit-details-marker{display:none}
+.reason-box[open] summary{margin-bottom:8px}
+.reason-box form{display:grid;gap:8px}
+.reason-box textarea{min-height:70px;font-size:14px}
+.btn--danger{background:#fff;border-color:#d9534f;color:#b3302c}
+.btn--danger:hover{background:#fdecea}
+.btn--danger-fill{background:#c9302c;color:#fff}
+.btn--danger-fill:hover{background:#a52824}
+
+/* Thông báo */
+.notif-list{display:grid;gap:10px}
+.notif{position:relative;display:flex;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.notif.is-unread{border-color:#b9dfc9;background:#f3fbf6}
+.notif.is-unread::before{content:"";position:absolute;top:22px;left:-5px;width:10px;height:10px;border-radius:50%;background:var(--green)}
+.notif__icon{flex:none;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:var(--green-soft);font-size:18px}
+.notif__body{min-width:0;flex:1}
+.notif__title{font-weight:700}
+.notif__msg{margin:2px 0 4px;color:#374151;font-size:14px;overflow-wrap:anywhere}
+.notif__time{color:var(--muted);font-size:13px}
+/* cả thẻ bấm được: nút submit phủ lên toàn bộ thẻ */
+.notif__open{position:absolute;inset:0;border:0;background:transparent;cursor:pointer;border-radius:12px}
+.notif__open:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+/* Quản lý tin */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.tbl{width:100%;min-width:760px;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+.tbl th{background:#f6f7f8;color:var(--muted);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td a{color:var(--green);font-weight:600}
+.tbl td a:hover{text-decoration:underline}
+.posted{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--green-soft);color:var(--green-dark);font-size:12px;font-weight:700;white-space:nowrap}
+
+/* Trang rà soát của admin */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.admin-search{display:flex;gap:8px;flex-wrap:wrap}
+.admin-search .input{width:280px;max-width:100%}
+.tbl--admin td:last-child{width:1%;white-space:nowrap}
+.tbl--admin .reason-box form{width:260px;white-space:normal}
+.admin-note{margin-top:12px;font-size:13px}
+
+@media(max-width:760px){
+  .viewing{grid-template-columns:64px minmax(0,1fr)}
+  .viewing__actions{grid-column:1 / -1;flex-direction:row;flex-wrap:wrap;min-width:0}
+  .viewing__actions > *{flex:1 1 140px}
+}

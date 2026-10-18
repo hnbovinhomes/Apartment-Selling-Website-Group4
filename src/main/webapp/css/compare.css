@@ -1,0 +1,214 @@
+/* compare.css - trang Bảng so sánh căn hộ */
+.compare-table-wrap{
+    overflow-x:auto;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px
+}
+
+.compare-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:720px;
+    text-align:center
+}
+
+.compare-table th,.compare-table td{
+    border:1px solid var(--line);
+    padding:9px 12px
+}
+
+.compare-table tbody tr:nth-child(even){
+    background:#f3f4f6
+}
+
+.compare-table__label{
+    width:150px;
+    text-align:left;
+    font-weight:600;
+    background:#f3f4f6
+}
+
+.compare-item{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    text-align:left;
+    position:relative
+}
+.compare-item__img{
+    width:66px;
+    height:66px;
+    border-radius:6px;
+    object-fit:cover
+}
+
+.compare-item__name{
+    font-size:15px
+}
+
+.compare-item__remove{
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:26px;
+    height:26px;
+    border:1px solid #bbb;
+    border-radius:50%;
+    background:#fff;
+    cursor:pointer
+}
+
+.compare-add{margin-top:14px;
+    width:100%;
+    padding:11px;
+    border:1.5px solid #333;
+    border-radius:8px;
+    background:#fff;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: inherit;
+    cursor:pointer
+}
+
+.help-cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:30px
+}
+.help-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px
+}
+
+.help-card__title{
+    font-size:18px;
+    margin-bottom:6px
+}
+
+.help-card__text{
+    color:var(--muted);
+    font-size:14px
+}
+
+.cmpx-title {
+    font-size: 2rem;
+    margin: 8px 0 20px;
+}
+.cmpx-note {
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: #fff4e5;
+    color: #8a4b00;
+    margin-bottom: 16px;
+}
+.cmpx-wrap {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid #e3e8e5;
+    border-radius: 12px;
+}
+.cmpx-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 720px;
+    table-layout: fixed;
+}
+.cmpx-table th, .cmpx-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #edf0ee;
+    text-align: center;
+    vertical-align: middle;
+}
+.cmpx-table th.cmpx-label {
+    width: 150px;
+    text-align: left;
+    background: #f6f8f7;
+    font-weight: 600;
+}
+.cmpx-table tr:nth-child(even) td {
+    background: #fafbfa;
+}
+.cmpx-head {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+}
+.cmpx-head img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex: none;
+}
+.cmpx-head a {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+}
+.cmpx-head small {
+    display: block;
+    color: #66756e;
+    margin-top: 4px;
+}
+.cmpx-remove {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid #d9b3b3;
+    background: #fff;
+    color: #b33;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 16px;
+}
+.cmpx-empty {
+    color: #8a968f;
+    font-style: italic;
+}
+.cmpx-price {
+    font-weight: 700;
+    color: #2f7d57;
+}
+.cmpx-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.cmpx-add {
+    display: block;
+    margin-top: 16px;
+    text-align: center;
+}
+.cmpx-clear {
+    margin-top: 12px;
+    text-align: right;
+}
+.cmpx-clear button {
+    background: none;
+    border: none;
+    color: #b33;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.cmpx-none {
+    padding: 40px 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px dashed #c9d3ce;
+    border-radius: 12px;
+}
+
+@media(max-width:800px){
+    .help-cards{
+        grid-template-columns:1fr 1fr
+    }
+}

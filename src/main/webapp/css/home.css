@@ -1,0 +1,553 @@
+/* home.css - Đã được đồng bộ để sử dụng chung với base.css */
+
+/* ================= HEADER (Đã xóa, sử dụng layout.css của Phát) ================= */
+/* Lưu ý: Bạn nhớ cập nhật file layout.css nếu header có thay đổi nhé */
+
+/* ================= HERO ================= */
+.hero {
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.30));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    color: var(--white); /* Dùng biến của base.css */
+}
+
+.hero-badge {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 7px 13px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.12);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    max-width: 720px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.08;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin-bottom: 32px;
+    font-size: 20px;
+    color: rgba(255,255,255,0.9);
+}
+
+.search-box {
+    width: min(760px, 100%);
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    background: var(--white);
+    border-radius: 14px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+}
+
+.search-icon {
+    padding: 0 14px;
+    color: var(--muted);
+    font-size: 20px;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 15px 5px;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.search-box button {
+    padding: 14px 26px;
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    background: var(--green); /* Đổi màu xanh của nhóm trưởng sang --green của bạn */
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.search-box button:hover {
+    background: var(--green-dark);
+}
+
+.quick-search {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 16px;
+    font-size: 13px;
+}
+
+.quick-search span {
+    opacity: 0.75;
+}
+
+.quick-search a {
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.14);
+    border: 1px solid rgba(255,255,255,0.18);
+    transition: 0.2s;
+}
+
+.quick-search a:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* ================= SECTION ================= */
+section {
+    padding: 80px 0;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 32px;
+}
+
+.section-heading.center {
+    display: block;
+    text-align: center;
+}
+
+.section-label {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+    margin-top: 7px;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.section-heading p {
+    margin-top: 8px;
+    color: var(--muted);
+}
+
+.view-all {
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* ================= SERVICES ================= */
+.quick-section {
+    background: var(--white);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.service-card {
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.service-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 13px;
+    background: var(--green-soft);
+    font-size: 25px;
+}
+
+.service-card h3 {
+    margin-bottom: 8px;
+    font-size: 19px;
+}
+
+.service-card p {
+    min-height: 52px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.service-link {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ================= PROPERTY ================= */
+.property-section {
+    background: var(--bg);
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.property-card {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--white);
+    transition: 0.25s;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.09);
+}
+
+.property-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.property-card:hover .property-image img {
+    transform: scale(1.05);
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.94);
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.property-status {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: var(--white);
+    background: var(--green);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.property-content {
+    padding: 22px;
+}
+
+.property-price {
+    margin-bottom: 5px;
+    color: var(--green);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.property-content h3 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.property-location {
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.property-meta {
+    display: flex;
+    gap: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.property-meta b {
+    color: var(--text);
+}
+
+.property-button {
+    display: block;
+    margin-top: 18px;
+    padding: 11px;
+    text-align: center;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.property-button:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
+/* ================= TRUST ================= */
+.trust-section {
+    background: var(--white);
+}
+
+.trust-wrapper {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.trust-text h2 {
+    max-width: 650px;
+    margin-top: 10px;
+    font-size: 38px;
+    line-height: 1.2;
+}
+
+.trust-text > p {
+    max-width: 650px;
+    margin-top: 18px;
+    color: var(--muted);
+}
+
+.trust-list {
+    margin-top: 30px;
+}
+
+.trust-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.trust-item > span {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: var(--white);
+    background: var(--green);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.trust-item strong {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.trust-item p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.trust-card {
+    padding: 40px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, var(--green), var(--green-dark)); /* Dùng gradient bằng biến */
+    color: var(--white);
+    box-shadow: 0 20px 45px rgba(46, 125, 87, 0.22); /* Đổi shadow tone xanh của bạn */
+}
+
+.trust-card-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 22px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    font-size: 25px;
+}
+
+.trust-card h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.trust-card p {
+    color: rgba(255,255,255,0.82);
+}
+
+.trust-stat {
+    display: flex;
+    gap: 45px;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.trust-stat div {
+    display: flex;
+    flex-direction: column;
+}
+
+.trust-stat strong {
+    font-size: 26px;
+}
+
+.trust-stat span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* ================= NOTIFICATION ================= */
+.notification-section {
+    padding-top: 20px;
+    background: var(--bg);
+}
+
+.notification-panel {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--white);
+}
+
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 28px;
+    border-bottom: 1px solid var(--line);
+}
+
+.notification-header h2 {
+    margin-top: 5px;
+    font-size: 25px;
+}
+
+.notification-header button {
+    border: none;
+    background: transparent;
+    color: var(--green);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.notification-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.notification-item {
+    display: flex;
+    gap: 13px;
+    padding: 22px;
+    border-right: 1px solid var(--line);
+}
+
+.notification-item:last-child {
+    border-right: none;
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: var(--green-soft);
+}
+
+.notification-item h4 {
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.notification-item p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.notification-arrow {
+    margin-left: auto;
+    color: var(--green);
+}
+
+/* ================= FOOTER (Đã xóa, sử dụng layout.css của Phát) ================= */
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1050px) {
+    .nav-menu { display: none; }
+    .service-grid { grid-template-columns: repeat(2, 1fr); }
+    .property-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-wrapper { grid-template-columns: 1fr; }
+    .notification-list { grid-template-columns: 1fr; }
+    .notification-item { border-right: none; border-bottom: 1px solid var(--line); }
+    .notification-item:last-child { border-bottom: none; }
+    .footer-content { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 650px) {
+    .container { width: min(100% - 28px, 1180px); }
+    section { padding: 55px 0; }
+    .header-actions .login-btn { display: none; }
+    .hero { min-height: 600px; }
+    .hero h1 { font-size: 39px; }
+    .hero p { font-size: 17px; }
+    .search-box { flex-wrap: wrap; }
+    .search-box input { min-width: 0; width: calc(100% - 50px); }
+    .search-box button { width: 100%; }
+    .quick-search { flex-wrap: wrap; }
+    .service-grid, .property-grid { grid-template-columns: 1fr; }
+    .section-heading { display: block; }
+    .view-all { display: inline-block; margin-top: 15px; }
+    .trust-text h2 { font-size: 30px; }
+    .footer-content { grid-template-columns: 1fr; }
+}
+/* ===== Bổ sung: căn hộ chưa có ảnh ===== */
+.property-no-image{width:100%;height:100%;display:grid;place-items:center;background:#e9edf0;color:var(--muted);font-size:14px}

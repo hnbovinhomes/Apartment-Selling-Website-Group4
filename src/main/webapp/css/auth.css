@@ -1,0 +1,54 @@
+/* auth.css - trang Đăng nhập / Đăng ký: thẻ 2 cột, trái là giới thiệu (nền xanh nhạt), phải là form */
+.auth-page{min-height:100vh;display:grid;place-items:center;padding:24px 16px;background:#e3e7eb}
+.auth-card{width:100%;max-width:1180px;display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.08)}
+
+/* Cột trái */
+.auth-side{background:#effbf3;padding:56px}
+.auth-badge{padding:18px 24px;border:1px solid #bfe8cf;border-radius:12px;background:#d6f5e2;color:#1f6b3f;text-align:center;font-size:15px;font-weight:800;letter-spacing:.02em;text-transform:uppercase;line-height:1.5}
+.auth-brand{display:inline-block;margin:44px 0 26px;color:#256a49;font-size:22px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.auth-side h1{max-width:14ch;margin-bottom:18px;font-size:34px;line-height:1.3}
+.auth-side p{max-width:46ch;color:#4b5563}
+
+/* Cột phải */
+.auth-main{display:flex;flex-direction:column;justify-content:center;padding:56px 64px}
+.auth-main h2{margin-bottom:24px;font-size:36px}
+.auth-input{width:100%;margin-bottom:16px;padding:15px 18px;border:2px solid #dcdfe4;border-radius:10px;background:#f7f8fa;font:inherit;font-size:16px;transition:border-color .15s,background .15s}
+.auth-input:focus{outline:none;border-color:var(--green);background:#fff}
+.auth-remember{display:flex;align-items:center;gap:8px;margin:-4px 0 16px;font-size:14px;color:#5c6470;cursor:pointer}
+.auth-remember input{width:16px;height:16px;accent-color:var(--green)}
+.auth-submit{width:100%;margin-top:8px;padding:16px;border:0;border-radius:10px;background:#246b4b;color:#fff;font:inherit;font-size:17px;font-weight:800;cursor:pointer;transition:background .15s}
+.auth-submit:hover{background:#1c5a3e}
+.auth-submit:focus-visible{outline:3px solid #9fd8b8;outline-offset:2px}
+.auth-switch{margin:22px 0 14px;text-align:center;color:#4b5563}
+.auth-switch a{color:#246b4b;font-weight:800;text-decoration:underline}
+.auth-back{color:#4b5563;font-size:15px;text-decoration:underline}
+.auth-hint{margin:-8px 0 14px;color:#6b7280;font-size:13px}
+.auth-alert{margin-bottom:18px;padding:12px 16px;border:1px solid #f3b8b3;border-radius:10px;background:#fdecea;color:#8a1f17;font-size:15px}
+/* nhãn ẩn: không hiện ra nhưng trình đọc màn hình vẫn đọc được */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Chọn vai trò (radio vẽ thành 2 ô bấm, không cần JavaScript) */
+.role-label{margin-bottom:8px;font-size:14px;font-weight:600}
+.role-picker{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;border:0}
+.role-option{position:relative}
+.role-option input{position:absolute;opacity:0;width:1px;height:1px}
+.role-option span{display:block;height:100%;padding:13px 16px;border:2px solid #dcdfe4;border-radius:10px;background:#f7f8fa;cursor:pointer;transition:border-color .15s,background .15s}
+.role-option b{display:block;font-size:15px}
+.role-option small{color:#4b5563;font-size:13px}
+.role-option input:checked + span{border-color:#246b4b;background:#effbf3}
+.role-option input:focus-visible + span{outline:3px solid #9fd8b8;outline-offset:2px}
+
+/* Đổi tiêu đề cột trái theo vai trò đang chọn: dùng CSS :has() nên bấm radio là đổi ngay */
+.auth-text--owner{display:none}
+.auth-card:has(#roleOwner:checked) .auth-text--owner{display:block}
+.auth-card:has(#roleOwner:checked) .auth-text--customer{display:none}
+
+@media(max-width:860px){
+  .auth-card{grid-template-columns:1fr}
+  .auth-side{padding:28px 24px}
+  .auth-brand{margin:24px 0 14px}
+  .auth-side h1{font-size:26px}
+  .auth-main{padding:28px 24px 32px}
+  .auth-main h2{font-size:28px}
+}
+@media(max-width:480px){.role-picker{grid-template-columns:1fr}}

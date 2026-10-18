@@ -1,0 +1,28 @@
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of '.mvn/wrapper/maven-wrapper.properties', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/apartment/website/common/controller/DbCheckServlet.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/apartment/website/common/controller/HomeServlet.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/apartment/website/config/AppContextListener.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/apartment/website/property/controller/PropertyServlet.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/apartment/website/property/repository/PropertyRepository.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/apartment/website/property/repository/PropertyRepositoryJdbc.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/apartment/website/property/service/PropertyService.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/resources/app.properties', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/webapp/css/listing-list.css', LF will be replaced by CRLF the next time Git touches it
+ .gitattributes                                     |  2 [31m-[m
+ .gitignore                                         | 27 [32m++++++++[m[31m----[m
+ .mvn/wrapper/maven-wrapper.properties              |  5 [32m+[m[31m--[m
+ .../website/common/controller/DbCheckServlet.java  |  1 [31m-[m
+ .../website/common/controller/HomeServlet.java     |  4 [32m+[m[31m-[m
+ .../website/config/AppContextListener.java         | 15 [32m++++[m[31m---[m
+ .../property/controller/PropertyServlet.java       | 44 [32m++++++++++++++++[m[31m---[m
+ .../property/repository/PropertyRepository.java    |  1 [31m-[m
+ .../repository/PropertyRepositoryJdbc.java         |  2 [32m+[m[31m-[m
+ .../repository/PropertyRepositoryMock.java         | 50 [31m----------------------[m
+ .../website/property/service/PropertyService.java  | 19 [32m+++++[m[31m---[m
+ .../ApartmentSellingWebsiteApplication.java        | 13 [31m------[m
+ src/main/resources/app.properties                  |  3 [32m+[m[31m-[m
+ src/main/resources/application.properties          |  1 [31m-[m
+ src/main/webapp/css/listing-list.css               | 11 [32m+++++[m
+ .../ApartmentSellingWebsiteApplicationTests.java   | 13 [31m------[m
+ 16 files changed, 95 insertions(+), 116 deletions(-)

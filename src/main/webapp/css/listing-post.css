@@ -1,0 +1,28 @@
+/* listing-post.css - trang Đăng tin (form chia 3 cột bằng grid-template-areas) */
+.post-card{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:32px 36px}
+.post-form{display:grid;gap:8px 40px;grid-template-columns:1fr 1.2fr 1fr;
+  grid-template-areas:"basic location media" "feature location media" "desc desc contact"}
+.post-section{min-width:0}
+.post-section__title{font-size:20px;font-weight:700;margin-bottom:12px}
+.post-section--basic{grid-area:basic}
+.post-section--location{grid-area:location}
+.post-section--feature{grid-area:feature}
+.post-section--media{grid-area:media}
+.post-section--desc{grid-area:desc}
+.post-section--contact{grid-area:contact}
+.post-section__hint{color:var(--muted);font-size:15px;margin:-8px 0 10px}
+
+.radio-group{display:flex;gap:22px;margin-bottom:14px}
+.radio-group label{display:flex;align-items:center;gap:6px;cursor:pointer}
+.radio-group input{accent-color:var(--green);width:18px;height:18px}
+
+.upload-box{border:2px dashed #c9ced4;border-radius:14px;height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;cursor:pointer;color:#333}
+.upload-box__icon{font-size:42px}
+.thumb-row{display:flex;gap:10px;margin:14px 0 20px}
+.thumb-row__item{width:25%;aspect-ratio:1/1;border-radius:8px;object-fit:cover}
+
+.form-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+
+@media(max-width:900px){
+  .post-form{grid-template-columns:1fr;grid-template-areas:"basic" "location" "feature" "media" "desc" "contact"}
+}

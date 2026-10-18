@@ -1,0 +1,82 @@
+/* appointment.css - trang Đặt lịch xem nhà */
+.appt-breadcrumb{color:var(--muted);font-size:14px;margin-bottom:10px}
+.appt-breadcrumb a:hover{color:var(--green)}
+.appt-breadcrumb strong{color:var(--green)}
+.appt-sub{color:var(--muted);margin:-8px 0 22px}
+
+.alert{padding:12px 16px;border-radius:10px;margin-bottom:18px;font-size:15px}
+.alert--ok{background:var(--green-soft);border:1px solid #b9dfc9;color:#1d5a3b}
+.alert--err{background:#fdecea;border:1px solid #f3b8b3;color:#8a1f17}
+
+.appt-layout{display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start}
+.appt-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 26px}
+.appt-step{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.appt-step__no{width:38px;height:38px;border-radius:10px;background:var(--green-soft);color:var(--green);font-weight:700;display:grid;place-items:center}
+.appt-step h2{font-size:19px}
+.appt-step p{color:var(--muted);font-size:14px}
+
+/* Lịch tháng */
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cal-head h3{font-size:17px}
+.cal-nav{display:flex;gap:8px}
+.cal-nav__btn{width:36px;height:36px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;font-size:18px;background:#fff}
+a.cal-nav__btn:hover{background:var(--green-soft)}
+.cal-nav__btn.is-disabled{color:#c3c8ce}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.cal-dow{text-align:center;color:var(--muted);font-size:14px;padding:6px 0}
+.cal-day{display:flex;flex-direction:column;align-items:center;padding:8px 2px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.cal-day b{font-size:16px}
+.cal-day small{font-size:11px;color:var(--muted)}
+a.cal-day:hover{border-color:var(--green);background:var(--green-soft)}
+.cal-day.is-few small{color:#b7791f}
+.cal-day.is-past,.cal-day.is-full{background:#f6f7f8;opacity:.5;cursor:not-allowed}
+.cal-day.is-selected,a.cal-day.is-selected:hover{background:var(--green);border-color:var(--green);color:#fff}
+.cal-day.is-selected small{color:#e3f3ea}
+
+/* Khung giờ */
+.slot-title{margin:22px 0 10px;font-size:16px}
+.slot-title span{font-weight:400;color:var(--muted);font-size:14px}
+.slot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.slot{text-align:center;padding:10px 0;border:1px solid var(--line);border-radius:9px;background:#fff;font-weight:600}
+a.slot:hover{border-color:var(--green);background:var(--green-soft)}
+.slot.is-selected,a.slot.is-selected:hover{background:var(--green);border-color:var(--green);color:#fff}
+.slot.is-disabled{text-decoration:line-through;color:#b6bcc4;background:#f6f7f8;cursor:not-allowed}
+
+.appt-hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+.appt-submit{padding:13px;font-size:16px}
+.appt-submit:disabled{background:#9bc3ae;cursor:not-allowed}
+.appt-hint{text-align:center;color:#b7791f;font-size:14px;margin-top:8px}
+.appt-privacy{text-align:center;color:var(--muted);font-size:13px;margin-top:10px}
+
+/* Cột phải: căn hộ + tóm tắt */
+.appt-side{position:sticky;top:90px}
+.appt-prop{padding:20px}
+.appt-prop__img{position:relative;border-radius:12px;overflow:hidden;height:170px;margin-bottom:14px}
+.appt-prop__img img{width:100%;height:100%;object-fit:cover}
+.appt-prop__badge{position:absolute;left:10px;top:10px;background:#fff;border-radius:6px;padding:3px 9px;font-size:12px;font-weight:600}
+.appt-prop__title{font-size:20px}
+.appt-prop__loc{color:var(--muted);font-size:14px;margin:4px 0 10px}
+.appt-prop__price{font-size:26px;font-weight:700}
+.appt-prop__price small{font-size:13px;font-weight:400;color:var(--muted)}
+.appt-prop__specs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.appt-prop__specs div{border:1px solid var(--line);border-radius:10px;text-align:center;padding:8px 2px}
+.appt-prop__specs b{display:block;font-size:16px}
+.appt-prop__specs small{color:var(--muted);font-size:12px}
+.appt-agent{display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.appt-agent__avatar{width:42px;height:42px;border-radius:50%;background:var(--green-soft);color:var(--green);font-weight:700;display:grid;place-items:center}
+.appt-agent small{display:block;color:var(--muted);font-size:13px}
+.appt-summary{background:var(--green-soft);border-radius:12px;padding:14px 16px}
+.appt-summary h4{margin-bottom:8px}
+.appt-summary p{display:flex;justify-content:space-between;gap:8px;font-size:14px;margin:4px 0}
+.appt-summary p span{color:var(--muted)}
+.appt-perks{color:var(--muted);font-size:13px;margin-top:12px}
+
+@media(max-width:900px){
+  .appt-layout{grid-template-columns:1fr}
+  .appt-side{position:static}
+  .slot-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Khung mời đăng nhập / thông báo cho chủ căn hộ thay cho form đặt lịch */
+.appt-login{display:grid;gap:10px;padding:18px;border:1px dashed #b9dfc9;border-radius:12px;background:#f3fbf6}
+.appt-login p{margin:0}

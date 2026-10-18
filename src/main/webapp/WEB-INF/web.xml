@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <display-name>Apartment Selling Website</display-name>
+
+    <!-- =====================================================================
+         Toàn bộ định tuyến khai báo tại đây (không dùng @WebServlet / @WebFilter / @WebListener).
+         Mỗi Servlet: <servlet> (tên + class) và <servlet-mapping> (tên + URL).
+         Trong Servlet, tham số ?action= quyết định chạy nhánh nào.
+         ===================================================================== -->
+
+    <!-- ===================== LISTENER ===================== -->
+    <!-- Chạy 1 lần khi Tomcat khởi động: tạo Repository, Service rồi cất vào ServletContext -->
+    <listener>
+        <listener-class>com.apartment.website.config.AppContextListener</listener-class>
+    </listener>
+
+    <!-- ===================== FILTER =====================
+         Filter chạy theo đúng thứ tự các <filter-mapping> bên dưới:
+         1. EncodingFilter: đặt UTF-8 trước khi ai đọc tham số tiếng Việt
+         2. AuthFilter: lấy người đăng nhập trong session, chặn trang cần đăng nhập -->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.apartment.website.common.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>com.apartment.website.common.filter.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- ===================== SERVLET ===================== -->
+
+    <!-- Trang chủ: / và /home -->
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>com.apartment.website.common.controller.HomeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <!-- url-pattern rỗng = đúng địa chỉ gốc của web (context root) -->
+        <url-pattern></url-pattern>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+
+    <!-- Đăng nhập / đăng ký / đăng xuất: ?action=login | register | logout -->
+    <servlet>
+        <servlet-name>AuthServlet</servlet-name>
+        <servlet-class>com.apartment.website.user.controller.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AuthServlet</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+
+    <!-- Căn hộ: ?action=list | detail (GET), ?action=review (POST) -->
+    <servlet>
+        <servlet-name>PropertyServlet</servlet-name>
+        <servlet-class>com.apartment.website.property.controller.PropertyServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PropertyServlet</servlet-name>
+        <url-pattern>/properties</url-pattern>
+    </servlet-mapping>
+
+    <!-- So sánh căn hộ: POST ?action=add | remove | clear -->
+    <servlet>
+        <servlet-name>ComparisonServlet</servlet-name>
+        <servlet-class>com.apartment.website.interaction.controller.ComparisonServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ComparisonServlet</servlet-name>
+        <url-pattern>/comparisons</url-pattern>
+    </servlet-mapping>
+
+    <!-- Đặt lịch xem nhà -->
+    <servlet>
+        <servlet-name>AppointmentServlet</servlet-name>
+        <servlet-class>com.apartment.website.appointment.controller.AppointmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AppointmentServlet</servlet-name>
+        <url-pattern>/appointments</url-pattern>
+    </servlet-mapping>
+
+    <!-- Trang Lịch hẹn: POST ?action=confirm | reject | complete | cancel -->
+    <servlet>
+        <servlet-name>ViewingServlet</servlet-name>
+        <servlet-class>com.apartment.website.appointment.controller.ViewingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewingServlet</servlet-name>
+        <url-pattern>/viewings</url-pattern>
+    </servlet-mapping>
+
+    <!-- Thông báo (cái chuông): POST ?action=read | readAll -->
+    <servlet>
+        <servlet-name>NotificationServlet</servlet-name>
+        <servlet-class>com.apartment.website.notification.controller.NotificationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotificationServlet</servlet-name>
+        <url-pattern>/notifications</url-pattern>
+    </servlet-mapping>
+
+    <!-- Quản lý tin (chủ căn hộ) / Rà soát tin (admin): ?action=create | delete -->
+    <servlet>
+        <servlet-name>ListingServlet</servlet-name>
+        <servlet-class>com.apartment.website.listing.controller.ListingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListingServlet</servlet-name>
+        <url-pattern>/postings</url-pattern>
+    </servlet-mapping>
+
+    <!-- Kiểm tra kết nối database -->
+    <servlet>
+        <servlet-name>DbCheckServlet</servlet-name>
+        <servlet-class>com.apartment.website.common.controller.DbCheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DbCheckServlet</servlet-name>
+        <url-pattern>/db-check</url-pattern>
+    </servlet-mapping>
+
+    <!-- ===================== SESSION ===================== -->
+    <!-- Không thao tác 30 phút thì session (đăng nhập, danh sách so sánh) hết hạn -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <cookie-config>
+            <http-only>true</http-only>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
+
+    <!-- ===================== TRANG LỖI ===================== -->
+    <!-- Khách hàng vào trang của Chủ căn hộ (sendError 403) -> hiện trang 403.jsp -->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/WEB-INF/views/error/403.jsp</location>
+    </error-page>
+
+    <!-- Địa chỉ không tồn tại / sendError(404) -> hiện trang 404.jsp -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/views/error/404.jsp</location>
+    </error-page>
+</web-app>
